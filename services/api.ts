@@ -19,7 +19,7 @@ export async function fetchMovies({ query }: { query: string }) {
 
   if (!response.ok)
     // @ts-ignore
-    throw new Error('Faild to fetch movies', response.statusText);
+    throw new Error('Failed to fetch movies', response.statusText);
 
   const data = await response.json();
 
