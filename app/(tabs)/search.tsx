@@ -24,20 +24,22 @@ function Search() {
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
       if (searchQuery.trim()) {
-        loadMovies();
-
-        if (movies?.length > 0 && movies?.[0]) {
-          updateSerachCount(searchQuery, movies[0]);
-        } else {
-          reset();
-        }
+        await loadMovies();
       } else {
         reset();
       }
     }, 500);
 
     return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery]);
+
+  useEffect(() => {
+    if (movies?.length > 0 && movies?.[0]) {
+      updateSerachCount(searchQuery, movies[0]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [movies]);
 
   return (
     <View className="flex-1 bg-primary">

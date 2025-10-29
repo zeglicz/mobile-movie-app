@@ -1,6 +1,6 @@
 // track the searches mad by a user
 
-import { Movie } from '@/interfaces/interfaces';
+import { Movie, TrendingMovie } from '@/interfaces/interfaces';
 import { Client, Databases, ID, Query } from 'react-native-appwrite';
 
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!;
@@ -23,7 +23,7 @@ export async function updateSerachCount(query: string, movie: Movie) {
     if (result.documents.length > 0) {
       const existingMovie = result.documents[0];
       await database.updateDocument(DATABASE_ID, TABLE_ID, existingMovie.$id, {
-        count: existingMovie.count++,
+        count: existingMovie.count + 1,
       });
     } else {
       await database.createDocument(DATABASE_ID, TABLE_ID, ID.unique(), {
@@ -37,5 +37,21 @@ export async function updateSerachCount(query: string, movie: Movie) {
   } catch (error) {
     console.log(error);
     throw error;
+  }
+}
+
+export async function getTrendingMovies(): Promise<
+  TrendingMovie[] | undefined
+> {
+  try {
+    const result = await database.listDocuments(DATABASE_ID, TABLE_ID, [
+      Query.limit(5),
+      Query.orderDesc('count'),
+    ]);
+
+    return result.documents as unknown as TrendingMovie[];
+  } catch (error) {
+    console.log(error);
+    return undefined;
   }
 }
