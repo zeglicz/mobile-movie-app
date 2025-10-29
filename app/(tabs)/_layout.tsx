@@ -23,13 +23,13 @@ function TabsLayout() {
         },
         tabBarStyle: {
           backgroundColor: '#0F0D23',
-          borderRadius: 50,
-          marginHorizontal: 20,
+          borderRadius: 20,
+          marginHorizontal: 10,
           marginBottom: 36,
-          height: 52,
+          height: 56,
           position: 'absolute',
           overflow: 'hidden',
-          borderWidth: 1,
+          borderWidth: 0,
           borderColor: '#0F0D23',
         },
       }}
