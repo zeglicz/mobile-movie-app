@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 function TrendingCard({
-  movie: { movie_id, title, poster_url },
+  movie: { movie_id, title, poster_url, release_date, vote_average },
   index,
 }: TrendingCardProps) {
   return (
@@ -16,7 +16,6 @@ function TrendingCard({
           className="w-32 h-48 rounded-lg"
           resizeMode="cover"
         />
-
         <View className="absolute bottom-9 -left-5  pb-3 rounded-full">
           <MaskedView
             maskElement={
@@ -32,9 +31,13 @@ function TrendingCard({
         </View>
         <Text
           className="text-sm font-bold mt-3 text-light-300 text-center"
-          numberOfLines={2}
+          numberOfLines={1}
         >
           {title}
+        </Text>
+        <Text className="text-xs mt-2 text-light-100 text-center">
+          ★ {vote_average.toFixed(2)} &middot;{' '}
+          <Text className="text-light-200">{`${release_date.split('-')[0]}-${release_date.split('-')[1]}`}</Text>
         </Text>
       </TouchableOpacity>
     </Link>

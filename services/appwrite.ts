@@ -31,6 +31,8 @@ export async function updateSerachCount(query: string, movie: Movie) {
         movie_id: movie.id,
         count: 1,
         title: movie.title,
+        vote_average: movie.vote_average,
+        release_date: movie.release_date,
         poster_url: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
       });
     }
@@ -45,7 +47,7 @@ export async function getTrendingMovies(): Promise<
 > {
   try {
     const result = await database.listDocuments(DATABASE_ID, TABLE_ID, [
-      Query.limit(5),
+      Query.limit(6),
       Query.orderDesc('count'),
     ]);
 

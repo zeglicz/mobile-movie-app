@@ -21,6 +21,8 @@ export interface TrendingMovie {
   title: string;
   count: number;
   poster_url: string;
+  release_date: string;
+  vote_average: number;
 }
 
 export interface MovieDetails {
