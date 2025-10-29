@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# <span align="center"><samp>Movie Flix</samp></span>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Mobile app for discovering and exploring movies. Browse trending and latest movies, search for titles, view detailed information, and track your favorite films. Features trending movies based on popular searches tracked via Appwrite backend.
 
-## Get started
+## Demo
 
-1. Install dependencies
+![app view](docs/demo.png)
 
-   ```bash
-   npm install
-   ```
+## Features
 
-2. Start the app
+- **Browse & Discover**: Trending movies algorithm powered by search analytics, latest releases
+- **Smart Search**: Real-time movie search with search tracking and trending rankings
+- **Rich Details**: Comprehensive movie information with ratings, budgets, production details
+- **Cross-Platform**: Native iOS, Android, and Web support via Expo
 
-   ```bash
-   npx expo start
-   ```
+## Tech Stack
 
-In the output, you'll find options to open the app in a
+- **React Native** with **Expo** (~54.0) – cross-platform mobile development
+- **Expo Router** (~6.0) – file-based routing
+- **NativeWind** (v4.2) – TailwindCSS for React Native styling
+- **TypeScript** – type-safe development
+- **TMDB API** – movie data (The Movie Database)
+- **Appwrite** – backend for tracking search trends and analytics
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Screens
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `/` – Home: Trending movies and latest releases
+- `/search` – Search movies with real-time results
+- `/saved` – Saved movies
+- `/profile` – User profile
+- `/movies/:id` – Movie details page
 
-## Get a fresh project
-
-When you're ready, run:
+## Project structure
 
 ```bash
-npm run reset-project
+app/
+├─ (tabs)/
+│  ├─ index.tsx          # Home screen
+│  ├─ search.tsx         # Search screen
+│  ├─ saved.tsx          # Saved movies
+│  ├─ profile.tsx        # User profile
+│  └─ _layout.tsx        # Tab navigation layout
+├─ movies/
+│  └─ [id].tsx           # Movie details page
+└─ _layout.tsx           # Root layout
+
+components/              # Reusable UI components
+services/                # API connections & data fetching
+constants/               # App constants
+interfaces/              # TypeScript type definitions
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Installation
 
-## Learn more
+```bash
+# 1. Clone
+git clone https://github.com/zeglicz/movie-flix.git
+cd movie-flix
 
-To learn more about developing your project with Expo, look at the following resources:
+# 2. Install
+npm install
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# 3. Env
+cp .env.example .env   # fill values
 
-## Join the community
+# 4. Start development server
+npm start
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# 5. Run on specific platform (optional)
+npm run ios           # iOS simulator
+npm run android       # Android emulator
+npm run web           # Web browser
+```
