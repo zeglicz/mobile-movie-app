@@ -2,6 +2,8 @@
 
 Mobile app for discovering and exploring movies. Browse trending and latest movies, search for titles, view detailed information, and track your favorite films. Features trending movies based on popular searches tracked via Appwrite backend.
 
+This project is based on a tutorial from [JavaScript Mastery](https://www.youtube.com/watch?v=f8Z9JyB2EIE). Educational repository - not intended for production use.
+
 ## Demo
 
 ![app view](docs/demo.png)
