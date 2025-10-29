@@ -23,7 +23,7 @@ function SearchBar({
         tintColor="#AB8BFF"
       />
       <TextInput
-        onFocus={onPress}
+        onPress={onPress}
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
