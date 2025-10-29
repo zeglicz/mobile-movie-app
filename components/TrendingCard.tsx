@@ -37,7 +37,9 @@ function TrendingCard({
         </Text>
         <Text className="text-xs mt-2 text-light-100 text-center">
           ★ {vote_average.toFixed(2)} &middot;{' '}
-          <Text className="text-light-200">{`${release_date.split('-')[0]}-${release_date.split('-')[1]}`}</Text>
+          <Text className="text-light-200">
+            {release_date?.slice(0, 7) ?? ''}
+          </Text>
         </Text>
       </TouchableOpacity>
     </Link>
